@@ -1,21 +1,14 @@
 var form = document.forms[0].elements;
 var submit = document.querySelector("#submit");
-// submit.disabled = true;
-//
-// form.quantity.addEventListener("change", function() {
-//   if ((form.quantity.value>=1) &&(form.quantity.value<=100)){
-//     	submit.disabled = false;
-//   }
-//   else{
-//     submit.disabled = false;
-//   }
-// }, false);
+
 
 var numberEl = document.querySelector("section:last-child p:first-of-type span");
 var countEl = document.querySelector("section:last-child p:nth-of-type(2) span");
 var compareEl = document.querySelector("section:last-child p:nth-of-type(3) span");
 var finalEl = document.querySelector("section:last-child p:nth-of-type(4) span");
 submit.disabled=true;
+
+//make sure the number is in range
 form.quantity.addEventListener("change", function() {
   var number = form.quantity.value;
     if( number <= 0 || number > 100 ) {
@@ -26,10 +19,13 @@ form.quantity.addEventListener("change", function() {
     }
 }, false);
 
-
+//create a random number
 var goal=Math.floor(Math.random() * 100) + 1;
+//count times
 var count=0;
+//store all the guessed number
 var guessed=[];
+
 function compareNumber(number) {
    if (number<goal){
      return "You are too small!";
@@ -38,14 +34,19 @@ function compareNumber(number) {
      return "You are too big!";
    }
    else {
-     document.getElementById("submit").style.display = 'none';
+     document.getElementById("submit").style.display = 'none'; //hide submit button when game is done
      return "You guess the right number!";
 
    }
 }
+
 function countTimes(){
   count++;
 }
+
+//different response according to count;
+//check if the number is guessed before;
+//show nothing when none of these cases happens;
 function finalSentence(number,goal,array){
   if (number==goal){
     switch (true){
@@ -81,6 +82,7 @@ function finalSentence(number,goal,array){
     return "";
   }
 }
+
 submit.addEventListener("click", function() {
   event.preventDefault();
   countTimes();
