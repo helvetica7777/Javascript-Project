@@ -1,9 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap');
+
 html {
   font-size: 16px;
+  background: url("../image/01.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  html {
+    background: url("../image/02.jpg") no-repeat center fixed;
+  }
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Merienda', cursive;
   text-align:center;
 }
 
@@ -17,4 +27,10 @@ form {
 
 section {
   margin-bottom: 3rem;
+}
+
+footer{
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
 }
